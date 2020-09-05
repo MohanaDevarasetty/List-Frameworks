@@ -1,0 +1,7 @@
+<ng-container *ngIf="enableTable">
+    <app-filter-section [headers]="headers" [keyMap]="keyMap"></app-filter-section>
+    <app-table [headers]="headers" [list]="list" [keyMap]="keyMap"></app-table>
+    <div style="text-align: right;">
+        <button type="submit"> Download </button>
+    </div>
+</ng-container>

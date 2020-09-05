@@ -1,0 +1,8 @@
+.table tbody tr .link {
+    padding-left: 24px;
+    background: url(/assets/images/icon-down-arrow.png) no-repeat 10px center
+}
+
+.table tbody tr .link.collapsed {
+    background: url(/assets/images/icon-right-arrow.png) no-repeat 10px center
+}

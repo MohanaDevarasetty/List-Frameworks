@@ -1,0 +1,204 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*=================================================================
+STEPPER CUSTOM -  CSS START
+========================================================================= */
+
+ul.stepper {
+    width: 100%;
+    padding: 5px 0 10px;
+    margin: 0;
+    list-style: none
+}
+
+ul.stepper li {
+    min-width: 16%;
+    text-align: center;
+    font-size: 14px;
+    color: #464646;
+    float: left;
+    list-style: none;
+    padding: 40px 0 0;
+    margin: 0;
+    position: relative
+}
+
+ul.stepper li a {
+    color: #464646;
+    background-color: inherit
+}
+
+ul.stepper li.active a {
+    font-weight: 500;
+    color: #002f60
+}
+
+ul.stepper li span {
+    width: 28px;
+    height: 28px;
+    display: block;
+    margin: 0 auto;
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    content: '';
+    background-color: #979797;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%
+}
+
+ul.stepper li span img {
+    width: 17px;
+    line-height: 28px;
+    display: block;
+    margin: 8px auto 0
+}
+
+ul.stepper li:after {
+    width: 100%;
+    height: 1px;
+    background: #c4c4c4;
+    display: block;
+    position: absolute;
+    top: 14px;
+    left: -50%;
+    z-index: 1;
+    content: ''
+}
+
+ul.stepper li:first-child:after {
+    display: none
+}
+
+ul.stepper li span.bg-success {
+    background: url(assets/images/icon-stepper-tick-light.svg) no-repeat center #002f60
+}
+
+@media(max-width:640px) {
+    ul.stepper {
+        padding: 10px 0 10px 73px
+    }
+    ul.stepper li {
+        width: 100%;
+        text-align: left;
+        padding: 0 0 45px 40px
+    }
+    ul.stepper li:last-child {
+        padding-bottom: 0px
+    }
+    ul.stepper li span {
+        right: inherit
+    }
+    ul.stepper li:after {
+        width: 1px;
+        height: 45px;
+        left: 13px;
+        top: 34px
+    }
+    ul.stepper li:first-child:after {
+        display: block
+    }
+    ul.stepper li:last-child:after {
+        display: none
+    }
+}
+
+
+.pointer {
+    cursor: pointer;
+}
+
+section .container-fluid {
+    padding-left: 30px;
+    padding-right: 30px
+}
+
+@media(max-width:991px) {
+    section .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+}
+
+.tableSection {
+    width: 100%;
+    height: auto;
+}
+
+.tableText {
+    width: 86px;
+    height: 19px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #4a4a4a;
+}
+
+.textHeader {
+    text-align: left;
+    /* width:20%; */
+    width: 99px;
+    height: 16px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+.tableHeader {
+    height: 54px;
+    background-color: #ededed;
+}
+
+.tableHeaderText {
+    width: 124px;
+    height: 28px;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #4a4a4a;
+}
+
+
+.icon-24 {
+    width: 24px !important
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+.dropdown-content ul {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  
+.dropdown-content ul:hover {background-color: #ddd;}
+  
+.dropdown:hover .dropdown-content {display: block;}
+

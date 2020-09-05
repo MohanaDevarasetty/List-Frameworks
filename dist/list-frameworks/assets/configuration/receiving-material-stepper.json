@@ -1,0 +1,26 @@
+[
+    {
+        "uri": "/truckInfo",
+        "displayname": "Truck Info"
+    },
+    {
+        "uri": "/growerInfo",
+        "displayname": "Grower Info"
+    },
+    {
+        "uri": "/weighing",
+        "displayname": "Weighing"
+    },
+    {
+        "uri": "/sampling",
+        "displayname": "Sampling"
+    },
+    {
+        "uri": "/binAllocation",
+        "displayname": "Bin Allocation"
+    },
+    {
+        "uri": "/binAllocation",
+        "displayname": "Bin Allocation222"
+    }
+]

@@ -1,0 +1,38 @@
+<div id="tableId">
+    <div >
+        <table class="table tableSection">
+            <thead class="tableHeader tableHeaderText">
+                <tr>
+                    <ng-container *ngFor="let key of headers">
+                        <th *ngIf="keyMap.get(key).available" [class]="getClass()" (click)="sort(key)" >{{keyMap.get(key).displayName | splitCamelCase}}</th>
+                    </ng-container>
+                    <th tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                        aria-label="Action: activate to sort column ascending">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container >
+                    <tr *ngFor="let record of pagedItems; let i = index">
+                        <ng-container *ngFor="let key of headers; let j = index">
+                            <td *ngIf="keyMap.get(key).available" 
+                            [style.text-align]="(keyMap.get(key).type !== 'String' && keyMap.get(key).type !== 'Date') ? 'right' : 'left'">
+                                {{ (keyMap.get(key).type !== 'String' && keyMap.get(key).type === 'Amount'  ? (record[key] ? (record[key] | number:'1.2-2') : '') 
+                                : (keyMap.get(key).type === 'Date' ? (record[key] ? (record[key].replace('Z', '') | date: 'dd:LLL:yyyy hh:mm') : '') : (record[key] ? record[key] : ''))) }}
+                            </td>
+                        </ng-container>
+                        <td>
+                            <a title="Edit" class="btn btn-primary btn-xs" id="editButton"
+                                alt="">
+                                <span class="glyphicon glyphicon-pencil"></span></a>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
+<ng-container *ngIf="list?.length && pagedItems?.length">
+    <app-pagination [list]="list" (emiter)="changePagedItems($event)"></app-pagination>
+</ng-container>

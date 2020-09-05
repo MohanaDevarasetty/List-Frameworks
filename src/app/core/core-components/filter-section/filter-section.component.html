@@ -1,0 +1,24 @@
+<div class="col-12 col-md-12 col-lg-6 dropdown">
+    <button class="dropbtn" type="button" name="" class="btn-link ml-0 pl-0 align-top float-left">
+        <img class="icon-24" src="assets/images/icon-filter-blue.svg" alt="">
+    </button>
+    <span>Filter</span>
+    <div class="dropdown-content" id="dropdown-basic"  role="menu"
+        aria-labelledby="button-basic">
+        <label >
+            <input type="checkbox" [value]=""
+            (change)="$event ? masterToggle($event) : null"
+                [checked]="selection.hasValue() && isAllSelected() == true"
+                [indeterminate]="selection.hasValue() && !isAllSelected()" />
+            Select All
+        </label>
+        <div class="row" *ngFor="let header of headers">
+            <label *ngIf="keyMap.get(header).available">
+                <input type="checkbox"
+                (change)="$event ? selectColumn($event, header) : null"
+                [checked]="selection.isSelected(header) == true" />
+                {{keyMap.get(header).displayName | splitCamelCase}}
+            </label>
+        </div>
+    </div>
+</div>

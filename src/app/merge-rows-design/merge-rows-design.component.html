@@ -1,0 +1,205 @@
+<!-- 
+
+<div class="container-fluid">
+    <div id="divComments" class="col-12 table-responsive"
+        style="padding: inherit;min-height: 200px;max-height: 500px;overflow: auto;">
+        <table class="table">
+            <thead class="tableHeader tableHeaderText">
+                <td style="text-align: left;width:30%">
+                    Organization
+                </td>
+                <td style="text-align: left;width:30%">
+                    Resource
+                </td>
+                <td style="text-align: left;width:30%">
+                    Project
+                </td>
+                <td style="text-align: left;width:40%">
+                    Type
+                </td>
+                <td style="text-align: left;width:40%">
+                    Week1
+                </td>
+                <td style="text-align: left;width:40%">
+                    Week2
+                </td>
+                <td style="text-align: left;width:40%">
+                    Week3
+                </td>
+                <td style="text-align: left;width:40%">
+                    Week4
+                </td>
+                <td style="text-align: left;width:40%">
+                    Week5
+                </td>
+                <td style="text-align: left;width:40%">
+                    Week6
+                </td>
+                <td style="text-align: left;width:40%">
+                    Week7
+                </td>
+                <td style="text-align: left;width:40%">
+                    Week8
+                </td>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of dataExt">
+                    <td [attr.rowspan]="item.stateSpan" *ngIf="item.stateSpan">{{ item.org }}</td>
+                     <td [attr.rowspan]="item.countySpan" *ngIf="item.countySpan">{{ item.resource }}</td>
+                     <td>{{ item.project }}</td>
+                    <td>{{ item.type }}</td>
+                    <td>{{ item.Week1 }}</td>
+                    <td>{{ item.Week2 }}</td>
+                    <td>{{ item.Week3 }}</td>
+                    <td>{{ item.Week4 }}</td>
+                    <td>{{ item.Week5 }}</td>
+                    <td>{{ item.Week6 }}</td>
+                    <td>{{ item.Week7 }}</td>
+                    <td>{{ item.Week7 }}</td>
+                </tr>
+                <tr *ngIf="dataExt && dataExt.length==0">
+                    <td align="center" colspan="3">No Records Found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+<div class="container-fluid">
+    <div id="divComments" class="col-12 table-responsive"
+        style="padding: inherit;min-height: 200px;max-height: 500px;overflow: auto;">
+        <table class="table">
+            <thead class="tableHeader tableHeaderText">
+                <td style="text-align: left;width:20%">
+                    Resource Name
+                </td>
+                <td style="text-align: left;width:20%">
+                    Department
+                </td>
+                <td style="text-align: left;width:10%">
+                    Billable
+                </td>
+                <td style="text-align: left;width:10%">
+                    Non-Billable
+                </td>
+                <td style="text-align: left;width:10%">
+                    Internal
+                </td>
+                <td style="text-align: left;width:10%">
+                    PTO
+                </td>
+                <td style="text-align: left;width:10%">
+                    Holiday
+                </td>
+                <td style="text-align: left;width:10%">
+                    Special Leaves
+                </td>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let item of dataExt; let idx=index">
+                    <tr>
+                        <td style="text-align: left">
+                            <span
+                                                                class="collapsed link" data-toggle="collapse"
+                                                                attr.data-target="#outstandingLoansTab1{{idx}}"
+                                                                aria-expanded="true"></span>
+                                                                {{ item.resource }}
+                        </td>
+                         <td style="text-align: left">{{ item.org }}</td>
+                         <td style="text-align: left">{{ item.billableTypeValue }}</td>
+                        <td style="text-align: left">{{ item.nonbillableTypeValue }}</td>
+                        <td style="text-align: left">{{ item.internalvalue }}</td>
+                        <td style="text-align: left">{{ item.ptoValue }}</td>
+                        <td style="text-align: left">{{ item.holidayValue }}</td>
+                        <td style="text-align: left">{{ item.specialValue }}</td>
+                    </tr>
+    
+                    <tr  class="collapse "
+                    id="outstandingLoansTab1{{idx}}" colspan="10">
+                    <td colspan="10">
+                        <div class="table-responsive rounded mb-0">
+                            <table class="table table-hover">
+                                <thead class="tableHeader tableHeaderText">
+                                    <tr>
+                                        <!-- <th width="13%" scope="col">Loan Number </th> -->
+                                        <th width="15%" style="text-align: left" scope="col">Project</th>
+                                        <th width="15%" style="text-align: left" scope="col">
+                                            Type
+                                        </th>
+                                        <th scope="col" style="text-align: left">
+                                            Week1
+                                        </th>
+                                        <th scope="col" style="text-align: left">
+                                            Week2
+                                        </th>
+                                        <th scope="col" style="text-align: left">
+                                            Week3
+                                        </th>
+                                        <th scope="col" style="text-align: left">Week4</th>
+                                        <th scope="col" style="text-align: left">Week5</th>
+                                        <th scope="col" style="text-align: left">Week6</th>
+                                        <th scope="col" style="text-align: left">Week7</th>
+                                        <th scope="col" style="text-align: left">Week8</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container 
+                                    *ngFor="let projectInfo of item.project; let idy=index">
+                                        <tr *ngIf="projectInfo.type === 'Billable' || projectInfo.type === 'Internal'  || projectInfo.type === 'Non-Billable'">
+                                      <td style="text-align: left">
+                                          {{ projectInfo.name }}
+                                      </td>
+                                      <td style="text-align: left">
+                                        {{ projectInfo.type }}
+                                    </td>
+
+                                    <td style="text-align: left">
+                                        {{ projectInfo.Week1 }}
+                                    </td>
+                                    <td style="text-align: left">
+                                        {{ projectInfo.Week2 }}
+                                    </td>
+                                    <td style="text-align: left">
+                                        {{ projectInfo.Week3 }}
+                                    </td>
+
+                                    <td style="text-align: left">
+                                        {{ projectInfo.Week4}}
+                                    </td>
+
+                                    <td style="text-align: left">
+                                        {{ projectInfo.Week5 }}
+                                    </td>
+                                    <td style="text-align: left">
+                                        {{ projectInfo.Week6 }}
+                                    </td>
+                                    <td style="text-align: left">
+                                        {{ projectInfo.Week7 }}
+                                    </td>
+                                    <td style="text-align: left">
+                                        {{ projectInfo.Week8 }}
+                                    </td>
+                                    </tr>
+                                    </ng-container>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                </ng-container>
+                
+                <tr *ngIf="dataExt && dataExt.length==0">
+                    <td align="center" colspan="3">No Records Found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

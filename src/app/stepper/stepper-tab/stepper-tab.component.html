@@ -1,0 +1,22 @@
+<div class="main-container">
+    <div class="right-content">
+        <section class="">
+            <div class="container-fluid">
+                <div class="">
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-9 position-relative">
+                            <ul class="stepper mts-m-hide" >
+                                <li *ngFor="let stepper of stepperDetails" >
+                                    <a (click)="navigtor(stepper.uri)"><span class="pointer">
+                                    </span> {{ stepper.displayname }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <router-outlet></router-outlet> -->
+        <ng-template inject-comp ></ng-template>
+    </div>
+</div>
